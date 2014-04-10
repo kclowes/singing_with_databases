@@ -3,7 +3,11 @@
 <body>
 <h1>Welcome</h1>
 <ul>
-  <li><%= TASKS %></li>
+  <% ARRAY_OF_TASKS.each do |hash| %>
+    <li>
+      <%= hash[:task] %>
+    </li>
+  <% end %>
 </ul>
 
 <a href="/tasks">Add A Task</a>

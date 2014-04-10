@@ -1,20 +1,22 @@
 require 'sinatra/base'
+require 'sequel'
 
 class App < Sinatra::Application
 
-  TASKS = []
+  db = Sequel.connect('postgres://gschool_user:password@localhost/tasks_db_test')
+  tasks_table = db[:tasks]
+  ARRAY_OF_TASKS = tasks_table.to_a
 
   get '/' do
     erb :index
   end
 
   get '/tasks' do
-    erb :tasks, :locals => {:added_task => params[:task_field]}
+    erb :tasks
   end
 
   post '/' do
-    TASKS << params[:task_field]
+    tasks_table.insert({:task => params[:task_field]})
     redirect '/'
-
   end
 end
