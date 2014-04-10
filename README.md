@@ -1,0 +1,1 @@
+A place where I can explore merging sinatra and sequel into a working web app
