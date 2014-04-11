@@ -1,6 +1,6 @@
 require 'sequel'
 
-db_url = ENV['DATABASE_URL'] || 'postgres://gschool_user:password@localhost/tasks_db_test'
+db_url = ENV['DATABASE_URL'] 
 DB = Sequel.connect(db_url)
 
 require './app'

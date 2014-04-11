@@ -2,11 +2,11 @@ require 'sinatra/base'
 require 'sequel'
 
 class App < Sinatra::Application
+
   tasks_table = DB[:tasks]
-  ARRAY_OF_TASKS = tasks_table.to_a
 
   get '/' do
-    erb :index
+    erb :index, locals: {tasks_array: tasks_table.to_a}
   end
 
   get '/tasks' do
