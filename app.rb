@@ -3,7 +3,7 @@ require 'sequel'
 
 class App < Sinatra::Application
   tasks_table = DB[:tasks]
-  TASKS_ARRAY = tasks_table.to_a
+  ARRAY_OF_TASKS = tasks_table.to_a
 
   get '/' do
     erb :index
